@@ -5,7 +5,7 @@ on:
         inputs:
             app:
                 type: string
-                description: "Select the Application"
+                description:  "Select application :  React-JS, Python or Java-Maven"
                 required: true
 
 jobs:
