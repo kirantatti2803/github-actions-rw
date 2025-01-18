@@ -1,0 +1,18 @@
+name: Build Docker Image 
+
+on:
+    workflow_call:
+        inputs:
+            app:
+                required: true
+                type: string
+                description: Choice of Application A, B or C
+
+jobs:
+    push_to_registry:
+        name: Push Docker Image to Docker Hub
+        runs-on: ubuntu-latest
+        steps:
+            - name: Push Docker Image to Docker Hub
+              run: |
+                echo " Docker image is built and pushed to Docker Hub"

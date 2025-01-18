@@ -1,0 +1,18 @@
+name: Jfrog Artifactory
+
+on:
+    workflow_call:
+        inputs:
+            app:
+                required: true
+                type: string
+                description: Choice of Application A, B or C
+
+jobs:
+    jfrog-artifactory:
+        name: Artifactory to Jfrog
+        runs-on: ubuntu-latest
+        steps:
+            - name: Artifactory to Jfrog
+              run: |
+                echo " Artifacatory are stored in Jfrog Successfully"

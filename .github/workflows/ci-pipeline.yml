@@ -9,9 +9,26 @@ on:
               default: "A"
               
 jobs:
-    trigger-reusable:     
+    build-job:     
         uses: ./.github/workflows/build-reusable.yml
         with: 
             app: ${{ inputs.app }}
 
+    sonarqube-job:  
+        needs: build-job
+        uses: ./.github/workflows/sonar-sast-reusable.yml
+        with: 
+            app: ${{ inputs.app }}
 
+    jfrog-artifactory-job:  
+        needs: build-job
+        uses: ./.github/workflows/docker-image-reusable.yml
+        with: 
+            app: ${{ inputs.app }}
+
+    docker-job:  
+        needs: build-job
+        uses: ./.github/workflows/docker-image-reusable.yml
+        with: 
+            app: ${{ inputs.app }}
+        

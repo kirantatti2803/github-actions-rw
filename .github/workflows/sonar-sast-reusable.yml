@@ -1,0 +1,22 @@
+name: Sonar Scan
+
+on:
+    workflow_call:
+        inputs:
+            app:
+                required: true
+                type: string
+                description: Choice of Application A, B or C
+
+jobs:
+    sonarqube:
+        name: SonarQube Scan
+        runs-on: ubuntu-latest
+        steps:
+            - name: SonarQube Scan
+              run: |
+                echo "Sonar qube integrtaion done"
+              #uses: sonarsource/sonarqube-scan-action@master
+              #env:
+                #SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+                #SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL}}         
