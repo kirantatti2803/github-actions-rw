@@ -4,9 +4,9 @@ on:
     workflow_call:
         inputs:
             app:
-                type: string
-                description:  "Select application :  React-JS, Python or Java-Maven"
                 required: true
+                type: string
+                description: The Application choices React-JS, Python or Java-Maven
 
 jobs:
     jfrog-artifactory:

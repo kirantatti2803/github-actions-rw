@@ -2,16 +2,11 @@ name: Build
 
 on:
     workflow_call:
-        inputs:
-          app:
-            type: choice
-            description:  "Select the Application"
-            options:
-              - React-JS
-              - Python
-              - Java-Maven
-            default: React-JS
-            required: true
+      inputs:
+        app:
+          required: true
+          type: string
+          description: The Application choices React-JS, Python or Java-Maven
 
 jobs:
     build:

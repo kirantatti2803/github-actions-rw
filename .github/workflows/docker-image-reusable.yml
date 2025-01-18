@@ -6,7 +6,7 @@ on:
             app:
                 required: true
                 type: string
-                description: Choice of Application A, B or C
+                description: The Application choices React-JS, Python or Java-Maven
 
 jobs:
     push_to_registry:
