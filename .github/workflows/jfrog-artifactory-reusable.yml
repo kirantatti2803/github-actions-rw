@@ -4,9 +4,9 @@ on:
     workflow_call:
         inputs:
             app:
-                required: true
                 type: string
-                description: Choice of Application A, B or C
+                description: "Select the Application"
+                required: true
 
 jobs:
     jfrog-artifactory:
