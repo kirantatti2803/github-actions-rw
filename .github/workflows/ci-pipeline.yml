@@ -4,14 +4,10 @@ on:
     workflow_dispatch:
         inputs:
             app:
-              type: choice
-              description:  "Select the Application"
-              options:
-                - React-JS
-                - Python
-                - Java-Maven
-              default: React-JS
-              required: true
+                type: string
+                description:  "Select application :  React-JS, Python or Java-Maven"
+                required: true
+                default: "React-JS"
               
 jobs:
     build-job:     
