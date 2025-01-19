@@ -6,7 +6,7 @@ on:
             app:
                 required: true
                 type: string
-                description: The Application choices React-JS, Python or Java-Maven
+                description: "Select Application: React-JS, Python or Java-Maven"
 
 jobs:
     jfrog-artifactory:

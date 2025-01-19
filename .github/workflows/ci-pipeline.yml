@@ -4,7 +4,7 @@ on:
     workflow_dispatch:
         inputs:
             app:
-                description:  "The Application choices React-JS, Python or Java-Maven"
+                description:  "Select Application: React-JS, Python or Java-Maven"
                 required: true
                 default: "React-JS"
               
@@ -20,15 +20,17 @@ jobs:
         with: 
             app: ${{ inputs.app }}
 
-    jfrog-artifactory-job:  
+    docker-job:  
         needs: sonarqube-job
+        uses: ./.github/workflows/docker-image-reusable.yml
+        with: 
+                app: ${{ inputs.app }}
+    
+    jfrog-artifactory-job:  
+        needs: docker-job
         uses: ./.github/workflows/jfrog-artifactory-reusable.yml
         with: 
             app: ${{ inputs.app }}
 
-    docker-job:  
-        needs: jfrog-artifactory-job
-        uses: ./.github/workflows/docker-image-reusable.yml
-        with: 
-            app: ${{ inputs.app }}
+
         
